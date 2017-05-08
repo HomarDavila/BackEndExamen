@@ -1,0 +1,27 @@
+<?php
+
+if (is_numeric($intInicio) && is_numeric($intFin)) {
+    $data = file_get_contents("../bd/employees.json");
+    $empleados = json_decode($data);
+    $filtro = new SplStack();
+
+    foreach ($empleados as $empleado) {
+        if (floatval(str_replace(",", "", substr($empleado->salary, 1, strlen($empleado->salary)))) >= $intInicio && floatval(str_replace(",", "", substr($empleado->salary, 1, strlen($empleado->salary)))) <= $intFin) {
+            $filtro->push($empleado);
+        }
+    }
+
+    $xml = new SimpleXMLElement('<root/>');
+    if (!$filtro->isEmpty()) {
+        do {
+            $objEmpleado = $filtro->pop();
+            $member = $xml->addChild('employee');
+            $member->addChild('name', $objEmpleado->name);
+            $member->addChild('position', $objEmpleado->position);
+            $member->addChild('salary', $objEmpleado->salary);
+        } while (!$filtro->isEmpty());
+    }
+
+    Header('Content-type: text/xml');
+    print($xml->asXML());
+}
