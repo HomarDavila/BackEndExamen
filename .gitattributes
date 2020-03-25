@@ -62,5 +62,4 @@
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
 
-App.config merge=ours
-git App --global merge.ours.driver true
+git merge --no-commit --no-ff hotfix
