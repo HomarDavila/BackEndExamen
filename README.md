@@ -1,3 +1,3 @@
-# BackEndExamen
-Examen backend
+# Generico
+Generico
 Creación del repositorio
