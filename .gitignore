@@ -4,3 +4,4 @@
 
 /Prueba/.vs/Prueba/v16
 *.config merge=ours
+git config --global merge.ours.driver true
