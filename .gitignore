@@ -4,3 +4,4 @@
 
 /Prueba/.vs/Prueba/v16
 
+git merge --no-commit --no-ff hotfix

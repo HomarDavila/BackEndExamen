@@ -61,5 +61,3 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
-
-git merge --no-commit --no-ff hotfix
